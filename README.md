@@ -12,16 +12,20 @@
 1. Push a commit to trigger the build.
 2. Download the artifact.
 
-## To build Firmware locally using Docker
+## To build Firmware locally using a container
 
-### Setup
+### First run
 
-1. Execute `setup.sh`.
+Note: Either Podman or Docker is required, Podman is preferred if both are present.
 
-### Build firmware
-
-1. Execute `run.sh`
+1. Execute `make all`.
 2. Check the `firmware` directory for the latest firmware build.
+
+### Subsequent runs
+
+If the only file you have changed is `config/adv360.keymap`, execute `make build` and check the `firmware` directory for the latest firmware build.
+
+If you have changed other files in the `config` directory (such as `config/west.yml`) you will need to execute `make all` to rebuild the Docker image as well as the firmware.
 
 ### Flash firmware
 
